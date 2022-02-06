@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "time-counter-cf093": {
+      "hosting": {
+        "time-couner": [
+          "time-counter-cf093"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "time-counter-cf093"
+  }
+}

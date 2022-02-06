@@ -40,3 +40,12 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+package-lock.json
+*.css
+*.map
+
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json
+src/environments/environment.ts

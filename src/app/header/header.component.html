@@ -1,0 +1,8 @@
+<mat-toolbar color="secondary">
+  <mat-icon>access_time</mat-icon>
+  <span style="margin-left: 15px;">Time Counter</span>
+  <input [(ngModel)]="ticketNumber" class="input" type="text" placeholder="Ticket number">
+  <div class="button">
+    <button mat-button (click)="create()" [disabled]="false">Create</button>
+  </div>
+</mat-toolbar>

@@ -1,0 +1,14 @@
+<div *ngIf="item != undefined" class="item-container">
+  <div class="item">
+    <span class="item-ticket">{{item?.ticket}}</span>
+    <a (click)="start(item)" class="item-action item-star">
+      <mat-icon>play_circle_filled</mat-icon>
+    </a>
+    <a (click)="pause(item)" class="item-action item-pause">
+      <mat-icon>pause_circle_filled</mat-icon>
+    </a>
+    <a (click)="delete(item)" class="item-action item-delete">
+      <mat-icon>cancel</mat-icon>
+    </a>
+  </div>
+</div>

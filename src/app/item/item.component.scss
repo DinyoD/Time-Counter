@@ -1,0 +1,20 @@
+.item-container {
+  .item {
+    height: 5vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    .item-action {
+      width: 40px;
+      height: 40px;
+      font-size: 40px;
+      margin-left: 15px;
+      cursor: pointer;
+    }
+    .item-ticket {
+      margin-right: auto;
+      font-size: 18px;
+    }
+  }
+}

@@ -31,9 +31,7 @@ p {
   .paused,
   .old {
     box-sizing: border-box;
-    width: 33%;
     border-radius: 10px;
-    background-color: rgba(salmon, 0.1);
     padding-top: 20px;
     p {
       text-align: center;
@@ -42,5 +40,17 @@ p {
     .items {
       margin-top: 30px;
     }
+  }
+  .active {
+    width: 28%;
+    background-color: rgba(green, 0.1);
+  }
+  .paused {
+    width: 41%;
+    background-color: rgba(salmon, 0.1);
+  }
+  .old {
+    width: 30%;
+    background-color: rgba(brown, 0.1);
   }
 }

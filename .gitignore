@@ -49,3 +49,4 @@ package-lock.json
 *-debug.log
 .runtimeconfig.json
 src/environments/environment.ts
+src/environments/environment.prod.ts

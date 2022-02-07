@@ -1,22 +1,22 @@
 <div *ngIf="item != undefined" class="item-container">
   <div class="item">
 
-    <span *ngIf="!isOld(item?.creationDateDisplay)" class="item-ticket">{{item?.startTimeDisplay}}</span>
+    <span *ngIf="!isOld(item?.creationDateDisplay)" class="item-time">{{item?.startTimeDisplay}}</span>
+    <span *ngIf="item?.stoped && !isOld(item?.creationDateDisplay)" class="item-time">{{item?.endTimeDisplay}}</span>
 
     <span *ngIf="item?.stoped && isOld(item?.creationDateDisplay)"
-      class="item-ticket">{{item?.creationDateDisplay}}</span>
+      class="item-date">{{item?.creationDateDisplay}}</span>
 
-    <span class="item-ticket">{{item?.ticket}}</span>
+    <span title="{{item?.ticket}}" class="item-ticket">{{item?.ticket?.slice(0, 40)}} ...</span>
 
-    <span *ngIf="item?.stoped && !isOld(item?.creationDateDisplay)" class="item-ticket">{{item?.endTimeDisplay}}</span>
 
-    <span *ngIf="item?.stoped" class="item-durationTime">{{item?.durationTime}}</span>
+    <span *ngIf="item?.stoped" class="item-durationTime">{{item?.durationTime}} min.</span>
 
-    <a *ngIf="!item?.stoped" (click)="pause(item)" class="item-action item-pause">
+    <a title="stop" *ngIf="!item?.stoped" (click)="pause(item)" class="item-action item-pause">
       <mat-icon>stop</mat-icon>
     </a>
 
-    <a *ngIf="item?.stoped" (click)="delete(item)" class="item-action item-delete">
+    <a title="delete" *ngIf="item?.stoped" (click)="delete(item)" class="item-action item-delete">
       <mat-icon>cancel</mat-icon>
     </a>
 

@@ -22,8 +22,6 @@ export class AppComponent implements OnInit {
       this.pausedItems = items.filter(x => x.stoped == true && x.creationDateDisplay == new Date().toDateString());
       this.activeItems = items.filter(x => x.stoped == false && x.creationDateDisplay == new Date().toDateString());
       this.oldItems = items.filter(x => x.creationDateDisplay != new Date().toDateString());
-      console.log(this.oldItems);
-      
     })
   }
 

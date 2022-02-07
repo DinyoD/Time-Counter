@@ -19,14 +19,12 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.itemServie.getItemsAsObservable().subscribe( items => {
-      this.pausedItems = items.filter(x => x.paused == true)
-      this.activeItems = items.filter(x => x.paused == false);
-      const dateNow = new Date();
-      this.oldItems = items
-        .filter(x => {x.creationDate.getDay  != dateNow.getDate 
-                  || x.creationDate.getMonth != dateNow.getMonth})
+      this.pausedItems = items.filter(x => x.stoped == true && x.creationDateDisplay == new Date().toDateString());
+      this.activeItems = items.filter(x => x.stoped == false && x.creationDateDisplay == new Date().toDateString());
+      this.oldItems = items.filter(x => x.creationDateDisplay != new Date().toDateString());
+      console.log(this.oldItems);
+      
     })
   }
-
 
 }

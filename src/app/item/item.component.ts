@@ -20,15 +20,31 @@ export class ItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  start(item: Item):void {
-
-  }
-
-  pause(item: Item):void {
+  public pause(item: Item):void {
+    console.log(item.startTime);
     
+    let diff =(new Date().getTime() - item.startTime) / 1000;
+    diff /= 60;
+    const duration =  Math.abs(Math.round(diff));
+    const pausedItem : Item = {
+      ...item,
+      stoped: true,
+      endTime: new Date().getTime(),
+      endTimeDisplay: new Date().toTimeString().slice(0, 8),
+      durationTime: duration,
+
+    };
+    this.itemsService.updateItem(pausedItem);
   }
 
-  delete(item: Item):void {
+  public delete(item: Item):void {
+    this.itemsService.deleteItem(item);
+  }
 
+  public isOld(creationDateDisplay: string|undefined): boolean{
+    if (creationDateDisplay == undefined ) {
+      return false;
+    }
+    return creationDateDisplay != new Date().toDateString();
   }
 }

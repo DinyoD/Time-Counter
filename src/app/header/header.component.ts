@@ -12,26 +12,23 @@ import { ItemsService } from '../services/items.service';
 })
 export class HeaderComponent {
 
-  public item: Item ={
-    creationDate: new Date(),
-    startTime: new Date(),
-    paused: false,
-  }
-  public ticketNumber: string = '';
-
+  public ticketNumber: string| null = null
+  
   constructor(private itemService: ItemsService) {
   }
 
-  addItem(item: Item) {
-    this.itemService.addItem(item)
-  }
-
   create(){
-    const ticket = this.ticketNumber;
-    if (ticket != '') {
-      this.item.ticket = ticket;
-      this.addItem(this.item);
-      this.ticketNumber = '';
+    if (this.ticketNumber != null) {
+      const item: Item ={
+        creationDate: new Date(),
+        creationDateDisplay: new Date().toDateString(),
+        startTime: new Date().getTime(),
+        startTimeDisplay: new Date().toTimeString().slice(0, 8),
+        stoped: false,
+        ticket: this.ticketNumber,
+      }
+      this.itemService.addItem(item);
+      this.ticketNumber = null;
     }
   }
 

@@ -1,14 +1,24 @@
 <div *ngIf="item != undefined" class="item-container">
   <div class="item">
+
+    <span *ngIf="!isOld(item?.creationDateDisplay)" class="item-ticket">{{item?.startTimeDisplay}}</span>
+
+    <span *ngIf="item?.stoped && isOld(item?.creationDateDisplay)"
+      class="item-ticket">{{item?.creationDateDisplay}}</span>
+
     <span class="item-ticket">{{item?.ticket}}</span>
-    <a (click)="start(item)" class="item-action item-star">
-      <mat-icon>play_circle_filled</mat-icon>
+
+    <span *ngIf="item?.stoped && !isOld(item?.creationDateDisplay)" class="item-ticket">{{item?.endTimeDisplay}}</span>
+
+    <span *ngIf="item?.stoped" class="item-durationTime">{{item?.durationTime}}</span>
+
+    <a *ngIf="!item?.stoped" (click)="pause(item)" class="item-action item-pause">
+      <mat-icon>stop</mat-icon>
     </a>
-    <a (click)="pause(item)" class="item-action item-pause">
-      <mat-icon>pause_circle_filled</mat-icon>
-    </a>
-    <a (click)="delete(item)" class="item-action item-delete">
+
+    <a *ngIf="item?.stoped" (click)="delete(item)" class="item-action item-delete">
       <mat-icon>cancel</mat-icon>
     </a>
+
   </div>
 </div>
